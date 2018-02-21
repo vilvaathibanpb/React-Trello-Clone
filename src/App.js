@@ -37,6 +37,7 @@ class App extends Component {
 
 			<div>
 				<h1 className="main-title">Trello Boards</h1>
+				<p className="main-title" style={{ fontSize : "16px" }}>Click on a task to edit it </p>
 				<div className="trello-container">
 
 					<Droppable

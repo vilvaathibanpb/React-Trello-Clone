@@ -9,7 +9,14 @@ export const todoReducer = (state = {
         case TYPES.remove_Todo:
         return Object.assign({}, state,{ todoTasks : state.todoTasks.filter( e => e !== action.task ) });
         case TYPES.edit_Todo:
-            return state;
+        return Object.assign({}, state,{ todoTasks : state.todoTasks.map( (e,i) => {
+            if(i === state.todoTasks.indexOf(action.task.old)){
+                return action.task.new
+            }else{
+                return e;
+            }
+            
+        }) });
         default:
             return state;
     }

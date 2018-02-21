@@ -9,7 +9,14 @@ export const doneReducer = (state = {
         case TYPES.remove_Done:
             return Object.assign({}, state,{ doneTasks : state.doneTasks.filter( e => e !== action.task ) });
         case TYPES.edit_Done:
-            return state;
+            return Object.assign({}, state,{ doneTasks : state.doneTasks.map( (e,i) => {
+                if(i === state.doneTasks.indexOf(action.task.old)){
+                    return action.task.new
+                }else{
+                    return e;
+                }
+                
+            }) });
         default:
             return state;
     }
