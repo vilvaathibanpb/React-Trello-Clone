@@ -62,8 +62,10 @@ class Task extends React.Component{
             <span className="close-btn" onClick={(e) => { e.preventDefault(); this.toggleVisibility(false)}}>X</span>
         </div> 
             :
-            <Draggable type={this.props.type} data={this.props.value} onClick={(e) => { e.preventDefault(); this.toggleVisibility(true)}}>
-                <div className="task">{this.props.value} <span style={{ float: "right", cursor : "pointer" }} onClick={ (e) => { e.preventDefault(); this.remove(this.props.value) } }>X</span> </div>
+            <Draggable type={this.props.type} data={this.props.value}>
+                <div className="task">{this.props.value} 
+                    <span onClick={(e) => { e.preventDefault(); this.toggleVisibility(true)}}> <i className="fa fa-pencil" style={{float: "right", cursor : "pointer", marginLeft: "10px"}}></i> </span>  
+                    <span style={{ float: "right", cursor : "pointer" }} onClick={ (e) => { e.preventDefault(); this.remove(this.props.value) } }>X</span> </div>
             </Draggable>
            
         );
